@@ -48,7 +48,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() value: string | undefined = '';
 	@Input() preferredCountries: Array<string> = [];
 	@Input() enablePlaceholder = true;
-	@Input() customPlaceholder: string;
+	@Input() customPlaceholder: string = '';
 	@Input() numberFormat: PhoneNumberFormat = PhoneNumberFormat.International;
 	@Input() cssClass = 'form-control';
 	@Input() onlyCountries: Array<string> = [];
@@ -62,7 +62,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() phoneValidation = true;
 	@Input() inputId = 'phone';
 	@Input() separateDialCode = false;
-	separateDialCodeClass: string;
+	separateDialCodeClass: string = '';
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
 
