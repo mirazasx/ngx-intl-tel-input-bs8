@@ -13,9 +13,6 @@
 		"type": "git",
 		"url": "git+https://github.com/webcat12345/ngx-intl-tel-input"
 	},
-	"scripts": {
-		"prepare": "npm run build"
-	},
 	"author": {
 		"name": "webcat12345",
 		"email": "webcat91@gmail.com"
