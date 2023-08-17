@@ -48,7 +48,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() value: string | undefined = '';
 	@Input() preferredCountries: Array<string> = [];
 	@Input() enablePlaceholder = true;
-	@Input() customPlaceholder: string;
+	@Input() customPlaceholder: string='';
 	@Input() numberFormat: PhoneNumberFormat = PhoneNumberFormat.International;
 	@Input() cssClass = 'form-control';
 	@Input() onlyCountries: Array<string> = [];
@@ -56,13 +56,13 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	@Input() searchCountryFlag = false;
 	@Input() searchCountryField: SearchCountryField[] = [SearchCountryField.All];
 	@Input() searchCountryPlaceholder = 'Search Country';
-	@Input() maxLength: number;
+	@Input() maxLength: number=7;
 	@Input() selectFirstCountry = true;
-	@Input() selectedCountryISO: CountryISO;
+	@Input() selectedCountryISO: CountryISO=CountryISO.UnitedKingdom;
 	@Input() phoneValidation = true;
 	@Input() inputId = 'phone';
 	@Input() separateDialCode = false;
-	separateDialCodeClass: string;
+	separateDialCodeClass: string='';
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
 
@@ -86,7 +86,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	errors: Array<any> = ['Phone number is required.'];
 	countrySearchText = '';
 
-	@ViewChild('countryList') countryList: ElementRef;
+	@ViewChild('countryList') countryList: undefined | ElementRef=undefined;
 
 	onTouched = () => {};
 	propagateChange = (_: ChangeData) => {};
@@ -151,7 +151,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 	 */
 	public searchCountry() {
 		if (!this.countrySearchText) {
-			this.countryList.nativeElement
+			this.countryList?.nativeElement
 				.querySelector('.iti__country-list li')
 				.scrollIntoView({
 					behavior: 'smooth',
@@ -195,7 +195,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 		});
 
 		if (country.length > 0) {
-			const el = this.countryList.nativeElement.querySelector(
+			const el = this.countryList?.nativeElement.querySelector(
 				'#' + country[0].htmlId
 			);
 			if (el) {
