@@ -1,9 +1,6 @@
 {
 	"name": "ngx-intl-tel-input",
 	"version": "3.3.0",
-	"scripts": {
-		"prepare": "npm run build"
-	},
 	"peerDependencies": {
 		"@angular/common": "8.x - 14.x",
 		"@angular/core": "8.x - 14.x",
